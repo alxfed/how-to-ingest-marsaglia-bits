@@ -49,14 +49,14 @@ print(A[1:10])
 print(as.integer(A[1:10]))
 ```
 
-We can plot every 10000-th point and see whether the distribution is uniform enough
+We can reshape it (in place) to any array by assigning the dimensions
+to it.
 
 ```{r}
-n <- c(1:1000)
-plot(n, as.integer(A[10000*n]))
+dim(A) <- c(1000, 1000, 10)
 ```
 
-Seems to be uniform enough
+Here's the array.
 
 ##  R Markdown message
 
