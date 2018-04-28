@@ -21,5 +21,17 @@ s1 <- config$get(option = "x",
            interpolate = FALSE
            )
 
-print(as.integer(s1))
+shape <- c(as.integer(config$get(option = "x", 
+                                 fallback = NA, 
+                                 section = "data_array",
+                                 interpolate = FALSE)),
+           as.integer(config$get(option = "y", 
+                                 fallback = NA, 
+                                 section = "data_array",
+                                 interpolate = FALSE)),
+           as.integer(config$get(option = "z", 
+                                 fallback = NA, 
+                                 section = "data_array",
+                                 interpolate = FALSE))
+                      )
 # config is a list of lists
