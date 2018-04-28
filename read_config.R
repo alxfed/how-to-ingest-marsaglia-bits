@@ -1,9 +1,25 @@
 # read config file
 
-require(ini)
+require(ConfigParser)
 
-CONFIG_FILE_NAME <- 'data_config.ini'
+# Constant - the file name
+CONFIG_FILE_NAME <- 'data_config.ini'    
 
-config <- read.ini(CONFIG_FILE_NAME)
+# Creat a an instance of the object of ConfigParser class. 
 
+config <- ConfigParser$new(init = NULL, optionxform = tolower)  
+
+# Read the file, its content will populate the object
+config$read(CONFIG_FILE_NAME, 
+            encoding = getOption("encoding")
+            )
+
+# Now everything is accessible (as strings)
+s1 <- config$get(option = "x", 
+           fallback = NA, 
+           section = "data_array",
+           interpolate = FALSE
+           )
+
+print(as.integer(s1))
 # config is a list of lists
